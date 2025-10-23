@@ -1,0 +1,160 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Авторизация через Яндекс</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+            color: #1e293b;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 420px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+            padding: 48px 40px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            text-align: center;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: #1e293b;
+        }
+
+        .subtitle {
+            font-size: 16px;
+            color: #64748b;
+            margin-bottom: 32px;
+            line-height: 1.5;
+        }
+
+        .icon-wrapper {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .yandex-logo {
+            width: 120px;
+            height: 120px;
+            object-fit: contain;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 16px 24px;
+            font-size: 16px;
+            font-weight: 600;
+            font-family: 'Inter', sans-serif;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .btn-primary {
+            background: #fc3f1d;
+            color: white;
+            box-shadow: 0 4px 12px rgba(252, 63, 29, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: #e63913;
+            box-shadow: 0 6px 16px rgba(252, 63, 29, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .btn-primary:active {
+            transform: translateY(0);
+        }
+
+        @media (max-width: 480px) {
+            .card {
+                padding: 36px 24px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            .icon-wrapper {
+                width: 100px;
+                height: 100px;
+                margin-bottom: 24px;
+            }
+
+            .yandex-logo {
+                width: 100px;
+                height: 100px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="card">
+        <div class="icon-wrapper">
+            <img src="avatar.svg" alt="Яндекс" class="yandex-logo">
+        </div>
+        <h1>Авторизация через Яндекс</h1>
+        <p class="subtitle">Войдите в систему используя ваш аккаунт Яндекс</p>
+        <button id="loginBtn" class="btn btn-primary">
+            <span>Войти через Яндекс</span>
+        </button>
+    </div>
+</div>
+
+<script>
+    const loginBtn = document.getElementById('loginBtn');
+
+    loginBtn.addEventListener('click', () => {
+        // URL вашей Yandex Function, которая начинает OAuth flow
+        // Замените на реальный URL вашей функции
+        window.location.href = 'https://functions.yandexcloud.net/YOUR_FUNCTION_ID';
+    });
+</script>
+</body>
+</html>
